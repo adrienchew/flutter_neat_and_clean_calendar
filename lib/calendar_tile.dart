@@ -91,7 +91,7 @@ class NeatCleanCalendarTile extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: selectedColor != null
                         ? Utils.isSameDay(this.date!, DateTime.now())
-                            ? Colors.red
+                            ? Colors.purple
                             : selectedColor
                         : Theme.of(context).primaryColor,
                   )
