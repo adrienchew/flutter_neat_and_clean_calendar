@@ -63,6 +63,10 @@ class NeatCleanCalendarTile extends StatelessWidget {
   /// the header row or a date tile for each day of a week or a month. The property [isDayOfWeek]
   /// of the [NeatCleanCalendarTile] decides, if the rendered item should be a day or a date tile.
   Widget renderDateOrDayOfWeek(BuildContext context) {
+    // setting up colors for dark & light theme
+    final brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkTheme = brightness == Brightness.dark;
+
     // We decide, if this calendar tile should display a day name in the header row. If this is the
     // case, we return a widget, that contains a text widget with style property [dayOfWeekStyle]
     if (isDayOfWeek) {
@@ -129,7 +133,9 @@ class NeatCleanCalendarTile extends StatelessWidget {
                                 : Utils.isSameDay(this.date!, DateTime.now())
                                     ? todayColor
                                     : inMonth
-                                        ? Colors.black
+                                        ? isDarkTheme
+                                            ? Colors.white
+                                            : Colors.black
                                         : Colors
                                             .grey), // Grey color for previous or next months dates
                       ),
