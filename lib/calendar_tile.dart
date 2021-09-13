@@ -110,7 +110,7 @@ class NeatCleanCalendarTile extends StatelessWidget {
                         child: Container(
                           width: 20,
                           height: 20,
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).colorScheme.secondary,
                           child: Center(
                             child: Text(events!.length.toString(),
                                 style: Theme.of(context)
