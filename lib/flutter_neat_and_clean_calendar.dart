@@ -141,6 +141,8 @@ class _CalendarState extends State<Calendar> {
   DateTime get selectedDate => _selectedDate;
   List<NeatCleanCalendarEvent>? _selectedEvents;
 
+  // setting aspect ratio based on device screen size
+
   void initState() {
     super.initState();
     isExpanded = widget.isExpanded;
@@ -222,7 +224,8 @@ class _CalendarState extends State<Calendar> {
         ),
         child: Column(children: <Widget>[
           GridView.count(
-            childAspectRatio: 1.5,
+            childAspectRatio: // aspect ratio changes - adrien
+                MediaQuery.of(context).size.width > 600 ? 3.5 : 1.5,
             primary: false,
             shrinkWrap: true,
             crossAxisCount: 7,
