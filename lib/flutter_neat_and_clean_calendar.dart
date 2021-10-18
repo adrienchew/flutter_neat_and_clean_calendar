@@ -239,7 +239,8 @@ class _CalendarState extends State<Calendar> {
 
   List<Widget> calendarBuilder() {
     List<Widget> dayWidgets = [];
-    List<DateTime> calendarDays = selectedMonthsDays;
+    List<DateTime> calendarDays =
+        isExpanded ? selectedMonthsDays : selectedWeekDays as List<DateTime>;
     widget.weekDays.forEach(
       (day) {
         dayWidgets.add(
@@ -471,7 +472,7 @@ class _CalendarState extends State<Calendar> {
           ExpansionCrossFade(
             collapsed: calendarGridView,
             expanded: calendarGridView,
-            isExpanded: true,
+            isExpanded: isExpanded,
           ),
           expansionButtonRow,
           eventList
