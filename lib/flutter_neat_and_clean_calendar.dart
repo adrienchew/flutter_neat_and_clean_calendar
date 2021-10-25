@@ -372,7 +372,10 @@ class _CalendarState extends State<Calendar> {
       //     ),
       //   ),
       // );
-      return Container();
+      return Container(
+        color: widget.bottomBarColor ?? Color.fromRGBO(200, 200, 200, 0.2),
+        height: 1,
+      );
     } else {
       return Container();
     }
