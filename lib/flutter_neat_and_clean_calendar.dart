@@ -338,40 +338,41 @@ class _CalendarState extends State<Calendar> {
 
   Widget get expansionButtonRow {
     if (widget.isExpandable) {
-      return GestureDetector(
-        onTap: () {},
-        child: Container(
-          color: widget.bottomBarColor ?? Color.fromRGBO(200, 200, 200, 0.2),
-          height: 40,
-          margin: EdgeInsets.only(top: 8.0),
-          padding: EdgeInsets.all(0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(width: 40.0),
-              Text(
-                DateFormat(widget.expandableDateFormat, widget.locale)
-                    .format(_selectedDate),
-                style: widget.bottomBarTextStyle ?? TextStyle(fontSize: 13),
-              ),
-              // IconButton(
-              //   onPressed: toggleExpanded,
-              //   iconSize: 25.0,
-              //   padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              //   icon: isExpanded
-              //       ? Icon(
-              //           Icons.arrow_drop_up,
-              //           color: widget.bottomBarArrowColor ?? Colors.black,
-              //         )
-              //       : Icon(
-              //           Icons.arrow_drop_down,
-              //           color: widget.bottomBarArrowColor ?? Colors.black,
-              //         ),
-              // ),
-            ],
-          ),
-        ),
-      );
+      // return GestureDetector(
+      //   onTap: () {},
+      //   child: Container(
+      //     color: widget.bottomBarColor ?? Color.fromRGBO(200, 200, 200, 0.2),
+      //     height: 40,
+      //     margin: EdgeInsets.only(top: 8.0),
+      //     padding: EdgeInsets.all(0),
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: <Widget>[
+      //         // SizedBox(width: 40.0),
+      //         // Text(
+      //         //   DateFormat(widget.expandableDateFormat, widget.locale)
+      //         //       .format(_selectedDate),
+      //         //   style: widget.bottomBarTextStyle ?? TextStyle(fontSize: 13),
+      //         // ),
+      //         // IconButton(
+      //         //   onPressed: toggleExpanded,
+      //         //   iconSize: 25.0,
+      //         //   padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+      //         //   icon: isExpanded
+      //         //       ? Icon(
+      //         //           Icons.arrow_drop_up,
+      //         //           color: widget.bottomBarArrowColor ?? Colors.black,
+      //         //         )
+      //         //       : Icon(
+      //         //           Icons.arrow_drop_down,
+      //         //           color: widget.bottomBarArrowColor ?? Colors.black,
+      //         //         ),
+      //         // ),
+      //       ],
+      //     ),
+      //   ),
+      // );
+      return Container();
     } else {
       return Container();
     }
