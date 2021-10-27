@@ -124,6 +124,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
           todayButtonText: 'Heute',
           isExpanded: true,
           expandableDateFormat: 'EEEE, dd. MMMM yyyy',
+          onDateSelected: (val) {
+            debugPrint(val.toString());
+          },
           dayOfWeekStyle: TextStyle(
               color: Colors.black, fontWeight: FontWeight.w800, fontSize: 11),
         ),

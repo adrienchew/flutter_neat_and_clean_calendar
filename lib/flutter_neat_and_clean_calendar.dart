@@ -140,6 +140,7 @@ class _CalendarState extends State<Calendar> {
   String displayMonth = '';
   DateTime get selectedDate => _selectedDate;
   List<NeatCleanCalendarEvent>? _selectedEvents;
+  DateTime displaySelectedDate = DateTime.now();
 
   // setting aspect ratio based on device screen size
 
@@ -306,7 +307,8 @@ class _CalendarState extends State<Calendar> {
                 onDateSelected: () => handleSelectedDateAndUserCallback(day),
                 date: day,
                 dateStyles: configureDateStyle(monthStarted, monthEnded),
-                isSelected: Utils.isSameDay(selectedDate, day),
+                isSelected: Utils.isSameDay(displaySelectedDate,
+                    day), // todo edit colored select date, used to be linked with month date, but changed to hold indenpendent value from tiles only
                 inMonth: day.month == selectedDate.month),
           );
         }
@@ -525,7 +527,7 @@ class _CalendarState extends State<Calendar> {
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
     });
-    _launchDateSelectionCallback(_selectedDate);
+    // _launchDateSelectionCallback(_selectedDate);
   }
 
   void previousMonth() {
@@ -543,7 +545,7 @@ class _CalendarState extends State<Calendar> {
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
     });
-    _launchDateSelectionCallback(_selectedDate);
+    //_launchDateSelectionCallback(_selectedDate);
   }
 
   void nextWeek() {
@@ -625,6 +627,7 @@ class _CalendarState extends State<Calendar> {
     }
   }
 
+  // todo user on click
   void handleSelectedDateAndUserCallback(DateTime day) {
     var firstDayOfCurrentWeek = _firstDayOfWeek(day);
     var lastDayOfCurrentWeek = _lastDayOfWeek(day);
@@ -649,6 +652,7 @@ class _CalendarState extends State<Calendar> {
       }
     }
     setState(() {
+      displaySelectedDate = day;
       _selectedDate = day;
       selectedWeekDays =
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
