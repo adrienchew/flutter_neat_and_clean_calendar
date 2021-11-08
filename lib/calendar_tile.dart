@@ -105,25 +105,28 @@ class NeatCleanCalendarTile extends StatelessWidget {
               children: [
                 // Dots for the events
                 events != null && events!.length > 0
-                    ? Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: Theme.of(context).colorScheme.secondary,
-                              border: Border.all(
-                                  color: Colors.blue.shade50, width: 2)),
-                          // color: Theme.of(context).colorScheme.secondary,
-                          child: Center(
-                            child: Text(events!.length.toString(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .overline!
-                                    .copyWith(
-                                        color: Colors.white,
-                                        overflow: TextOverflow.ellipsis)),
+                    ? Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Theme.of(context).colorScheme.secondary,
+                                border: Border.all(
+                                    color: Colors.blue.shade50, width: 2)),
+                            // color: Theme.of(context).colorScheme.secondary,
+                            child: Center(
+                              child: Text(events!.length.toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .overline!
+                                      .copyWith(
+                                          color: Colors.white,
+                                          overflow: TextOverflow.ellipsis)),
+                            ),
                           ),
                         ),
                       )
