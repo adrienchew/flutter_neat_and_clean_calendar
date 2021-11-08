@@ -106,7 +106,7 @@ class NeatCleanCalendarTile extends StatelessWidget {
                 // Dots for the events
                 events != null && events!.length > 0
                     ? Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: Container(
