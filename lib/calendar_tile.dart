@@ -83,51 +83,53 @@ class NeatCleanCalendarTile extends StatelessWidget {
       // Here the date tiles get rendered. Initially eventCount is set to 0.
       // Every date tile can show up to three dots representing an event.
       int eventCount = 0;
-      return Padding(
-        padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-        child: InkWell(
-          onTap: onDateSelected, // react on tapping
-          child: Padding(
-            padding: const EdgeInsets.all(1.0),
-            child: Container(
-              // If this tile is the selected date, draw a colored circle on it. The circle is filled with
-              // the color passed with the selectedColor parameter or red color.
-              decoration: isSelected && date != null
-                  ? BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: selectedColor != null
-                          ? Utils.isSameDay(this.date!, DateTime.now())
-                              ? selectedColor
-                              : selectedColor
-                          : Theme.of(context).primaryColor,
-                    )
-                  : BoxDecoration(), // no decoration when not selected
-              alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Container(
-                    child: Center(
-                      child: Text(
-                        date != null ? DateFormat("d").format(date!) : '',
-                        style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                            color: isSelected && this.date != null
-                                ? Colors.white
-                                : Utils.isSameDay(this.date!, DateTime.now())
-                                    ? todayColor
-                                    : inMonth
-                                        ? isDarkTheme
-                                            ? Colors.white
-                                            : Colors.black
-                                        : Colors
-                                            .grey), // Grey color for previous or next months dates
-                      ),
+      return InkWell(
+        onTap: onDateSelected, // react on tapping
+        child: Padding(
+          padding: const EdgeInsets.all(1.0),
+          child: Container(
+            // If this tile is the selected date, draw a colored circle on it. The circle is filled with
+            // the color passed with the selectedColor parameter or red color.
+            decoration: isSelected && date != null
+                ? BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: selectedColor != null
+                        ? Utils.isSameDay(this.date!, DateTime.now())
+                            ? selectedColor
+                            : selectedColor
+                        : Theme.of(context).primaryColor,
+                  )
+                : BoxDecoration(), // no decoration when not selected
+            alignment: Alignment.center,
+            child: Stack(
+              children: [
+                Container(
+                  child: Center(
+                    child: Text(
+                      date != null ? DateFormat("d").format(date!) : '',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w400,
+                          color: isSelected && this.date != null
+                              ? Colors.white
+                              : Utils.isSameDay(this.date!, DateTime.now())
+                                  ? todayColor
+                                  : inMonth
+                                      ? isDarkTheme
+                                          ? Colors.white
+                                          : Colors.black
+                                      : Colors
+                                          .grey), // Grey color for previous or next months dates
                     ),
                   ),
-                  events != null && events!.length > 0
-                      ? Align(
-                          alignment: Alignment.bottomRight,
+                ),
+                events != null && events!.length > 0
+                    ? Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: MediaQuery.of(context).size.width > 700
+                              ? EdgeInsets.only(right: 30)
+                              : EdgeInsets.only(right: 0),
                           child: Container(
                             width: 20,
                             height: 20,
@@ -147,10 +149,10 @@ class NeatCleanCalendarTile extends StatelessWidget {
                                           overflow: TextOverflow.ellipsis)),
                             ),
                           ),
-                        )
-                      : Container(),
-                ],
-              ),
+                        ),
+                      )
+                    : Container(),
+              ],
             ),
           ),
         ),
