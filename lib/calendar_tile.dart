@@ -110,8 +110,8 @@ class NeatCleanCalendarTile extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: Container(
-                            width: 30,
-                            height: 30,
+                            width: 20,
+                            height: 20,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 color: Theme.of(context).colorScheme.secondary,
