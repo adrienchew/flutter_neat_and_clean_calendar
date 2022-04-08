@@ -123,29 +123,98 @@ class NeatCleanCalendarTile extends StatelessWidget {
                     ),
                   ),
                 ),
+                /*
+                  Number UI for event per day
+                 */
                 events != null && events!.length > 0
-                    ? Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Theme.of(context).colorScheme.secondary,
-                              border: Border.all(
-                                  color: Colors.blue.shade50, width: 2)),
-                          // color: Theme.of(context).colorScheme.secondary,
-                          child: Center(
-                            child: Text(events!.length.toString(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .overline!
-                                    .copyWith(
-                                        color: Colors.white,
-                                        overflow: TextOverflow.ellipsis)),
-                          ),
-                        ),
-                      )
+                    ? Builder(builder: (context) {
+                        // check if any record in the list have isDone, if yes then show additional UI
+                        bool isOT = false;
+                        try {
+                          for (int a = 0; a < events!.length; a++) {
+                            if (events![a].isAllDay) {
+                              isOT = true;
+                            }
+                          }
+                        } catch (e) {}
+                        if (isOT) {
+                          return Column(
+                            children: [
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        border: Border.all(
+                                            color: Colors.blue.shade50,
+                                            width: 2)),
+                                    // color: Theme.of(context).colorScheme.secondary,
+                                    child: Center(
+                                      child: Text("32",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .overline!
+                                              .copyWith(
+                                                  color: Colors.white,
+                                                  overflow:
+                                                      TextOverflow.ellipsis)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              // todo, optional to create two counter or just add a dot
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    width: 5,
+                                    height: 5,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        border: Border.all(
+                                            color: Colors.blue.shade50,
+                                            width: 2)),
+                                    // color: Theme.of(context).colorScheme.secondary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        } else {
+                          return Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  border: Border.all(
+                                      color: Colors.blue.shade50, width: 2)),
+                              // color: Theme.of(context).colorScheme.secondary,
+                              child: Center(
+                                child: Text(events!.length.toString(),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .overline!
+                                        .copyWith(
+                                            color: Colors.white,
+                                            overflow: TextOverflow.ellipsis)),
+                              ),
+                            ),
+                          );
+                        }
+                      })
                     : Container(),
               ],
             ),

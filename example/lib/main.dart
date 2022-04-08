@@ -31,6 +31,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
         endTime: DateTime(DateTime.now().year, DateTime.now().month,
             DateTime.now().day, 12, 0),
         description: 'A special event',
+        isAllDay: true,
         color: Colors.blue[700]),
   ];
   final Map<DateTime, List<NeatCleanCalendarEvent>> _events = {
