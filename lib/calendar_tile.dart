@@ -156,7 +156,7 @@ class NeatCleanCalendarTile extends StatelessWidget {
                                             width: 2)),
                                     // color: Theme.of(context).colorScheme.secondary,
                                     child: Center(
-                                      child: Text("32",
+                                      child: Text(events!.length.toString(),
                                           style: Theme.of(context)
                                               .textTheme
                                               .overline!
@@ -171,10 +171,10 @@ class NeatCleanCalendarTile extends StatelessWidget {
                               // todo, optional to create two counter or just add a dot
                               Expanded(
                                 child: Align(
-                                  alignment: Alignment.center,
+                                  alignment: Alignment.bottomCenter,
                                   child: Container(
-                                    width: 5,
-                                    height: 5,
+                                    width: 10,
+                                    height: 10,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(30),
                                         color: Theme.of(context)
