@@ -138,53 +138,49 @@ class NeatCleanCalendarTile extends StatelessWidget {
                           }
                         } catch (e) {}
                         if (isOT) {
-                          return Column(
+                          return Stack(
                             children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Container(
-                                    width: 20,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        border: Border.all(
-                                            color: Colors.blue.shade50,
-                                            width: 2)),
-                                    // color: Theme.of(context).colorScheme.secondary,
-                                    child: Center(
-                                      child: Text(events!.length.toString(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .overline!
-                                              .copyWith(
-                                                  color: Colors.white,
-                                                  overflow:
-                                                      TextOverflow.ellipsis)),
-                                    ),
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      border: Border.all(
+                                          color: Colors.blue.shade50,
+                                          width: 2)),
+                                  // color: Theme.of(context).colorScheme.secondary,
+                                  child: Center(
+                                    child: Text(events!.length.toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .overline!
+                                            .copyWith(
+                                                color: Colors.white,
+                                                overflow:
+                                                    TextOverflow.ellipsis)),
                                   ),
                                 ),
                               ),
                               // todo, optional to create two counter or just add a dot
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Container(
-                                    width: 10,
-                                    height: 10,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        border: Border.all(
-                                            color: Colors.blue.shade50,
-                                            width: 2)),
-                                    // color: Theme.of(context).colorScheme.secondary,
-                                  ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      border: Border.all(
+                                          color: Colors.blue.shade50,
+                                          width: 1)),
+                                  // color: Theme.of(context).colorScheme.secondary,
                                 ),
                               ),
                             ],
